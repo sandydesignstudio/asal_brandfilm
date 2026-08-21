@@ -992,9 +992,9 @@ function OnCamera() {
 function Crew() {
   const members = [
     { name: "Rohith", role: "Creative Lead / Producer" },
-    { name: "Karthi", role: "Director / Cinematographer" },
-    { name: "Surya", role: "Camera Operator" },
-    { name: "Hirthik", role: "Production Assistant" },
+    { name: "Karthi", role: "Director" },
+    { name: "Surya", role: "Cinematographer" },
+    { name: "Hirthik", role: "Production Assistant / Script Writer" },
     { name: "Drone Person", role: "Aerial Cinematography" },
   ];
 
@@ -1302,31 +1302,31 @@ function BusinessImpact() {
 
   return (
     <Slide tone="light">
-      <div className="flex h-full flex-col justify-between">
+      <div className="flex h-full flex-col justify-between overflow-y-auto max-h-full">
         <div className="flex items-start justify-between">
           <div>
             <SlideHeader index="28" label="WHY THIS IS WORTH DOING" tone="light" />
-            <h2 className="slide-hero mt-4 text-navy reveal max-w-[900px]">
+            <h2 className="text-[54px] font-semibold uppercase tracking-[0.01em] leading-[0.96] mt-3 text-navy reveal max-w-[850px]">
               WHAT ASAL GAINS, <span className="block text-blue">DIRECTLY.</span>
             </h2>
           </div>
-          <p className="slide-body max-w-[340px] text-navy/70 pt-6">
+          <p className="slide-body max-w-[320px] text-[15px] text-navy/70 pt-4 leading-relaxed">
             This is not brand decoration. It is a B2B sales instrument built to win larger contracts.
           </p>
         </div>
 
-        <div className="grid grid-cols-3 gap-x-12 gap-y-7 my-auto">
+        <div className="grid grid-cols-3 gap-x-10 gap-y-5 my-4">
           {gains.map((g, i) => (
-            <div key={g.num} className="border-t border-navy/15 pt-4 reveal" style={d(1 + i)}>
-              <span className="num slide-cap text-blue font-medium">{g.num}</span>
-              <h3 className="slide-sub mt-2 text-[26px] font-semibold text-navy leading-snug">{g.title}</h3>
-              <p className="slide-body mt-2 text-[15px] text-navy/65 leading-relaxed">{g.body}</p>
+            <div key={g.num} className="border-t border-navy/20 pt-2.5 reveal" style={d(1 + i)}>
+              <span className="num slide-cap text-blue font-semibold text-[15px]">{g.num}</span>
+              <h3 className="slide-sub mt-1 text-[21px] font-semibold text-navy leading-tight">{g.title}</h3>
+              <p className="slide-body mt-1.5 text-[13.5px] text-navy/70 leading-snug">{g.body}</p>
             </div>
           ))}
         </div>
 
-        <div className="flex items-center justify-between border-t border-navy/15 pt-4">
-          <p className="editorial text-[17px] text-navy/80">
+        <div className="flex items-center justify-between border-t border-navy/20 pt-3">
+          <p className="editorial text-[15px] text-navy/85">
             Position: ASAL is not a formwork supplier. ASAL is the engineering standard other builders are measured against.
           </p>
           <SdsMark variant="dark" className="h-5" showTag={false} />
