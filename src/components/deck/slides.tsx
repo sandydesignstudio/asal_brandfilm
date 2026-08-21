@@ -1211,135 +1211,125 @@ function FinalExperience() {
 function PreviousWork() {
   const works = [
     {
-      title: "Industrial & Brand Documentary",
+      no: "01 — BRAND FILM",
       url: "https://drive.google.com/file/d/1UALSk0ENT8SquUB9YAPbqKLQD1bmn9XA/preview",
-      desc: "Cinematic storytelling capturing manufacturing precision, human expertise, and commercial scale.",
-      tag: "Sandy Design Studio Portfolio",
+      note: "Documentary-led narrative, natural performance, cinematic grade.",
     },
     {
-      title: "Corporate Brand & Process Film",
+      no: "02 — BRAND FILM",
       url: "https://drive.google.com/file/d/1LS8h9_rCqDtFE1gwOdlQafuGFJ1ZWJBv/preview",
-      desc: "High-impact visual narrative built to elevate B2B brand perception and establish industry leadership.",
-      tag: "Sandy Design Studio Portfolio",
+      note: "Process-driven visuals, controlled camera movement, sound design.",
     },
   ];
 
   return (
     <Slide tone="navy">
       <div className="flex h-full flex-col justify-between">
-        <div className="flex items-end justify-between">
-          <SlideHeader index="16" label="Previous Work Showcase" />
-          <SdsMark variant="white" className="h-7" />
+        <div className="flex items-center justify-between">
+          <SlideHeader index="24" label="OUR PREVIOUS BRAND FILMS" />
+          <SdsMark variant="badge" className="h-5" />
         </div>
 
         <div>
-          <h2 className="slide-title text-offwhite reveal">
-            Our Previous <span className="text-blue-soft">Brand Films.</span>
+          <h2 className="slide-hero text-offwhite reveal">
+            THE WORK BEHIND <span className="text-blue-soft">THE PROMISE.</span>
           </h2>
-          <p className="slide-lead mt-3 max-w-[760px] text-offwhite/75 reveal" style={d(2)}>
-            Below are selected brand film works produced by <strong className="text-cream font-medium">Sandy Design Studio</strong>, demonstrating the visual quality, documentary depth, and cinematic standards brought to ASAL.
-          </p>
         </div>
 
-        <div className="grid grid-cols-2 gap-8 my-auto">
+        <div className="grid grid-cols-2 gap-10 my-auto">
           {works.map((w, i) => (
-            <div key={w.title} className="flex flex-col border border-offwhite/15 bg-navy-deep/70 p-4 rounded-sm reveal" style={d(3 + i)}>
-              <div className="relative aspect-video w-full overflow-hidden bg-black border border-blue/30 rounded-sm">
+            <div key={w.no} className="flex flex-col reveal" style={d(1 + i * 2)}>
+              <div className="relative aspect-video w-full overflow-hidden bg-black border border-offwhite/20">
                 <iframe
                   src={w.url}
-                  title={w.title}
+                  title={w.no}
                   allow="autoplay; encrypted-media"
                   allowFullScreen
                   className="h-full w-full border-0"
                 />
               </div>
-              <div className="mt-3 flex items-baseline justify-between">
-                <h3 className="slide-sub text-[22px] uppercase text-cream font-medium">{w.title}</h3>
-                <span className="kicker text-blue-soft text-[10px]">{w.tag}</span>
+              <div className="mt-4 flex items-baseline justify-between border-t border-offwhite/15 pt-3">
+                <span className="slide-cap font-semibold uppercase tracking-[0.14em] text-blue-soft">{w.no}</span>
+                <span className="slide-cap text-[14px] text-offwhite/70">{w.note}</span>
               </div>
-              <p className="slide-body mt-1 text-[15px] text-offwhite/70">{w.desc}</p>
             </div>
           ))}
         </div>
 
-        <div className="flex items-center justify-between border-t border-offwhite/15 pt-4">
-          <span className="kicker text-offwhite/40">Production Quality Standard</span>
-          <span className="slide-cap uppercase tracking-[0.24em] text-cream">
-            Cinematic B-Roll <span className="text-blue">+</span> Color Grading <span className="text-blue">+</span> Sound Design
-          </span>
+        <div className="flex items-center gap-2">
+          <span className="slide-cap uppercase tracking-[0.14em] text-blue font-medium">CREATIVE RATIONALE — </span>
+          <span className="slide-cap uppercase tracking-[0.14em] text-blue">THIS IS THE EXACT CRAFT STANDARD WE WILL APPLY TO ASAL.</span>
         </div>
       </div>
     </Slide>
   );
 }
 
-/* Business Impact & B2B ROI --------------------------------------------- */
+/* Business Impact / What Asal Gains ------------------------------------ */
 function BusinessImpact() {
-  const benefits = [
+  const gains = [
     {
       num: "01",
-      title: "Direct B2B Client Acquisition",
-      body: "This film directly targets high-stakes B2B sales. Enterprise contractors, infrastructure developers, and government authorities don't buy from brochures — they buy when they see unquestionable scale, machinery, and capability.",
-      highlight: "Converts inquiries into high-ticket contracts",
+      title: "You stop competing on price.",
+      body: "When a client sees the formwork process on film, the conversation moves from rate per square metre to engineering capability.",
     },
     {
       num: "02",
-      title: "Category Leader Positioning",
-      body: "Positions ASAL as the premier engineering authority, separating you from generic local fabricators. A Netflix-grade documentary elevates ASAL into a tier where price haggling stops and partnership value begins.",
-      highlight: "Commands premium pricing power",
+      title: "You shorten the sales cycle.",
+      body: "The film answers the trust questions before the meeting. Contractors and developers arrive already convinced of your standard.",
     },
     {
       num: "03",
-      title: "Frictionless Trust & Faster Deals",
-      body: "Shortens sales cycles dramatically. Instead of spending months explaining your workflow, sending one 3-minute film gives prospective clients instant proof of precision, safety standards, and project readiness.",
-      highlight: "Instant credibility in initial pitches",
+      title: "You become the known name.",
+      body: "Asal on camera turns a supplier into a recognised industry voice. People buy from the person they have already listened to.",
     },
     {
       num: "04",
-      title: "Personal Brand & Founder Trust",
-      body: "People partner with people. Humanizing Asal builds direct founder-level trust, giving B2B clients a clear face of leadership and accountability behind every project.",
-      highlight: "Unlocks long-term B2B partner relationships",
+      title: "You get one year of content.",
+      body: "One shoot produces the hero film, 4–5 reels and a library of B-roll for tenders, pitches, LinkedIn and the website.",
+    },
+    {
+      num: "05",
+      title: "You attract better people.",
+      body: "Skilled labour and engineers join companies whose work looks serious. The film recruits while it sells.",
+    },
+    {
+      num: "06",
+      title: "You own an asset, not an ad.",
+      body: "This footage keeps working in every proposal you send for years. No repeat spend, no expiry.",
     },
   ];
 
   return (
-    <Slide tone="deep" className="vignette">
+    <Slide tone="light">
       <div className="flex h-full flex-col justify-between">
-        <div className="flex items-end justify-between">
-          <SlideHeader index="28" label="Strategic ROI & Business Impact" />
-          <SdsMark variant="white" className="h-7" />
-        </div>
-
-        <div>
-          <h2 className="slide-hero text-offwhite reveal">
-            Why build this film?
-            <span className="block text-blue-soft">To win B2B clients.</span>
-          </h2>
-          <p className="editorial mt-3 max-w-[840px] text-[22px] text-cream reveal" style={d(2)}>
-            “This is not an aesthetic marketing expenditure. This is ASAL’s primary visual engine for acquiring high-value B2B contracts.”
+        <div className="flex items-start justify-between">
+          <div>
+            <SlideHeader index="28" label="WHY THIS IS WORTH DOING" tone="light" />
+            <h2 className="slide-hero mt-4 text-navy reveal max-w-[900px]">
+              WHAT ASAL GAINS, <span className="block text-blue">DIRECTLY.</span>
+            </h2>
+          </div>
+          <p className="slide-body max-w-[340px] text-navy/70 pt-6">
+            This is not brand decoration. It is a B2B sales instrument built to win larger contracts.
           </p>
         </div>
 
-        <div className="grid grid-cols-4 gap-6 my-auto">
-          {benefits.map((b, i) => (
-            <div key={b.title} className="flex flex-col justify-between border-t-2 border-blue bg-navy/40 p-5 reveal" style={d(3 + i)}>
-              <div>
-                <span className="num slide-cap text-blue text-[22px] font-semibold">{b.num}</span>
-                <h3 className="slide-sub mt-2 text-[20px] uppercase text-offwhite font-semibold leading-tight">{b.title}</h3>
-                <p className="slide-body mt-3 text-[14px] text-offwhite/75 leading-relaxed">{b.body}</p>
-              </div>
-              <div className="mt-4 border-t border-offwhite/15 pt-2.5">
-                <span className="kicker text-[10px] text-cream block">{b.highlight}</span>
-              </div>
+        <div className="grid grid-cols-3 gap-x-12 gap-y-7 my-auto">
+          {gains.map((g, i) => (
+            <div key={g.num} className="border-t border-navy/15 pt-4 reveal" style={d(1 + i)}>
+              <span className="num slide-cap text-blue font-medium">{g.num}</span>
+              <h3 className="slide-sub mt-2 text-[26px] font-semibold text-navy leading-snug">{g.title}</h3>
+              <p className="slide-body mt-2 text-[15px] text-navy/65 leading-relaxed">{g.body}</p>
             </div>
           ))}
         </div>
 
-        <div className="flex items-center justify-between border-t border-offwhite/15 pt-4">
-          <span className="kicker text-offwhite/40">Direct Business Result</span>
-          <p className="slide-cap uppercase tracking-[0.24em] text-cream">
-            More B2B Leads <span className="text-blue">→</span> Higher Contract Value <span className="text-blue">→</span> Unrivaled Market Presence
+        <div className="flex items-center justify-between border-t border-navy/15 pt-4">
+          <p className="editorial text-[17px] text-navy/80">
+            Position: ASAL is not a formwork supplier. ASAL is the engineering standard other builders are measured against.
           </p>
+          <SdsMark variant="dark" className="h-5" showTag={false} />
         </div>
       </div>
     </Slide>

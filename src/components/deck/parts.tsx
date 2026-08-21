@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import logoWhite from "@/assets/asal-logo-white.png.asset.json";
 import logoNavy from "@/assets/asal-logo-navy.png.asset.json";
+import asalLogoNew from "@/assets/asal-logo-new.png";
 import sdsLogoDark from "@/assets/sds-logo-dark.png";
 import sdsLogoWhite from "@/assets/sds-logo-white.png";
 
@@ -52,19 +53,35 @@ export function SlideHeader({
 }
 
 export function Mark({ variant = "white", className = "h-8" }: { variant?: "white" | "navy"; className?: string }) {
-  const src = variant === "white" ? logoWhite.url : logoNavy.url;
-  return <img src={src} alt="ASAL Engineering Services" className={`${className} w-auto`} loading="lazy" />;
+  const isNavy = variant === "navy";
+  return (
+    <img
+      src={asalLogoNew}
+      alt="ASAL Engineering Services"
+      className={`${className} w-auto object-contain ${isNavy ? "invert brightness-0" : ""}`}
+      loading="lazy"
+    />
+  );
 }
 
 export function SdsMark({
-  variant = "white",
-  className = "h-8",
-  showTag = true,
+  variant = "badge",
+  className = "h-5",
+  showTag = false,
 }: {
-  variant?: "white" | "dark" | "navy";
+  variant?: "white" | "dark" | "navy" | "badge";
   className?: string;
   showTag?: boolean;
 }) {
+  if (variant === "badge") {
+    return (
+      <div className="flex items-center gap-2 bg-white px-3 py-1.5 rounded-[4px] border border-white/20 shadow-sm">
+        {showTag && <span className="slide-cap text-[11px] font-semibold text-navy uppercase tracking-[0.1em]">SDS</span>}
+        <img src={sdsLogoDark} alt="Sandy Design Studio" className={`${className} w-auto object-contain`} loading="lazy" />
+      </div>
+    );
+  }
+
   const src = variant === "dark" || variant === "navy" ? sdsLogoDark : sdsLogoWhite;
   const isDark = variant === "dark" || variant === "navy";
   return (
