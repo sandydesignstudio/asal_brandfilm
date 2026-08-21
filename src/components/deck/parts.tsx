@@ -1,6 +1,8 @@
 import type { ReactNode } from "react";
 import logoWhite from "@/assets/asal-logo-white.png.asset.json";
 import logoNavy from "@/assets/asal-logo-navy.png.asset.json";
+import sdsLogoDark from "@/assets/sds-logo-dark.png";
+import sdsLogoWhite from "@/assets/sds-logo-white.png";
 
 type Tone = "navy" | "deep" | "light" | "beige" | "charcoal";
 
@@ -52,6 +54,29 @@ export function SlideHeader({
 export function Mark({ variant = "white", className = "h-8" }: { variant?: "white" | "navy"; className?: string }) {
   const src = variant === "white" ? logoWhite.url : logoNavy.url;
   return <img src={src} alt="ASAL Engineering Services" className={`${className} w-auto`} loading="lazy" />;
+}
+
+export function SdsMark({
+  variant = "white",
+  className = "h-8",
+  showTag = true,
+}: {
+  variant?: "white" | "dark" | "navy";
+  className?: string;
+  showTag?: boolean;
+}) {
+  const src = variant === "dark" || variant === "navy" ? sdsLogoDark : sdsLogoWhite;
+  const isDark = variant === "dark" || variant === "navy";
+  return (
+    <div className="flex items-center gap-3">
+      {showTag && (
+        <span className={`slide-cap uppercase tracking-[0.14em] text-[12px] font-medium ${isDark ? "text-navy/50" : "text-offwhite/50"}`}>
+          Produced by
+        </span>
+      )}
+      <img src={src} alt="Sandy Design Studio — Production Team" className={`${className} w-auto object-contain`} loading="lazy" />
+    </div>
+  );
 }
 
 /** Hand-drawn storyboard frame with director's annotations. */

@@ -1,5 +1,5 @@
 import type { ComponentType } from "react";
-import { Mark, Rationale, Slide, SlideHeader, StoryFrame } from "./parts";
+import { Mark, Rationale, Slide, SlideHeader, StoryFrame, SdsMark } from "./parts";
 
 import cover from "@/assets/cover-formwork.jpg";
 import a1 from "@/assets/sb-a1.jpg";
@@ -31,7 +31,11 @@ function Cover() {
       <div className="absolute inset-0 bg-gradient-to-r from-navy-deep via-navy-deep/80 to-transparent" />
       <div className="absolute inset-0 flex flex-col justify-between px-[110px] py-[78px]">
         <div className="flex items-start justify-between">
-          <Mark className="h-9 reveal-fade" />
+          <div className="flex items-center gap-6">
+            <Mark className="h-9 reveal-fade" />
+            <span className="h-6 w-px bg-offwhite/20" />
+            <SdsMark variant="white" className="h-7" />
+          </div>
           <span className="kicker text-blue-soft reveal" style={d(1)}>
             Creative Film Proposal
           </span>
@@ -997,7 +1001,10 @@ function Crew() {
   return (
     <Slide tone="light">
       <div className="flex h-full flex-col justify-between">
-        <SlideHeader index="23" label="The Production Team" tone="light" />
+        <div className="flex items-end justify-between">
+          <SlideHeader index="23" label="The Production Team" tone="light" />
+          <SdsMark variant="dark" className="h-7" />
+        </div>
         <div>
           <h2 className="slide-title text-navy reveal">The crew</h2>
           <div className="mt-12 grid grid-cols-5 gap-6">
@@ -1200,6 +1207,145 @@ function FinalExperience() {
   );
 }
 
+/* Previous Work Showcase ----------------------------------------------- */
+function PreviousWork() {
+  const works = [
+    {
+      title: "Industrial & Brand Documentary",
+      url: "https://drive.google.com/file/d/1UALSk0ENT8SquUB9YAPbqKLQD1bmn9XA/preview",
+      desc: "Cinematic storytelling capturing manufacturing precision, human expertise, and commercial scale.",
+      tag: "Sandy Design Studio Portfolio",
+    },
+    {
+      title: "Corporate Brand & Process Film",
+      url: "https://drive.google.com/file/d/1LS8h9_rCqDtFE1gwOdlQafuGFJ1ZWJBv/preview",
+      desc: "High-impact visual narrative built to elevate B2B brand perception and establish industry leadership.",
+      tag: "Sandy Design Studio Portfolio",
+    },
+  ];
+
+  return (
+    <Slide tone="navy">
+      <div className="flex h-full flex-col justify-between">
+        <div className="flex items-end justify-between">
+          <SlideHeader index="16" label="Previous Work Showcase" />
+          <SdsMark variant="white" className="h-7" />
+        </div>
+
+        <div>
+          <h2 className="slide-title text-offwhite reveal">
+            Our Previous <span className="text-blue-soft">Brand Films.</span>
+          </h2>
+          <p className="slide-lead mt-3 max-w-[760px] text-offwhite/75 reveal" style={d(2)}>
+            Below are selected brand film works produced by <strong className="text-cream font-medium">Sandy Design Studio</strong>, demonstrating the visual quality, documentary depth, and cinematic standards brought to ASAL.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-2 gap-8 my-auto">
+          {works.map((w, i) => (
+            <div key={w.title} className="flex flex-col border border-offwhite/15 bg-navy-deep/70 p-4 rounded-sm reveal" style={d(3 + i)}>
+              <div className="relative aspect-video w-full overflow-hidden bg-black border border-blue/30 rounded-sm">
+                <iframe
+                  src={w.url}
+                  title={w.title}
+                  allow="autoplay; encrypted-media"
+                  allowFullScreen
+                  className="h-full w-full border-0"
+                />
+              </div>
+              <div className="mt-3 flex items-baseline justify-between">
+                <h3 className="slide-sub text-[22px] uppercase text-cream font-medium">{w.title}</h3>
+                <span className="kicker text-blue-soft text-[10px]">{w.tag}</span>
+              </div>
+              <p className="slide-body mt-1 text-[15px] text-offwhite/70">{w.desc}</p>
+            </div>
+          ))}
+        </div>
+
+        <div className="flex items-center justify-between border-t border-offwhite/15 pt-4">
+          <span className="kicker text-offwhite/40">Production Quality Standard</span>
+          <span className="slide-cap uppercase tracking-[0.24em] text-cream">
+            Cinematic B-Roll <span className="text-blue">+</span> Color Grading <span className="text-blue">+</span> Sound Design
+          </span>
+        </div>
+      </div>
+    </Slide>
+  );
+}
+
+/* Business Impact & B2B ROI --------------------------------------------- */
+function BusinessImpact() {
+  const benefits = [
+    {
+      num: "01",
+      title: "Direct B2B Client Acquisition",
+      body: "This film directly targets high-stakes B2B sales. Enterprise contractors, infrastructure developers, and government authorities don't buy from brochures — they buy when they see unquestionable scale, machinery, and capability.",
+      highlight: "Converts inquiries into high-ticket contracts",
+    },
+    {
+      num: "02",
+      title: "Category Leader Positioning",
+      body: "Positions ASAL as the premier engineering authority, separating you from generic local fabricators. A Netflix-grade documentary elevates ASAL into a tier where price haggling stops and partnership value begins.",
+      highlight: "Commands premium pricing power",
+    },
+    {
+      num: "03",
+      title: "Frictionless Trust & Faster Deals",
+      body: "Shortens sales cycles dramatically. Instead of spending months explaining your workflow, sending one 3-minute film gives prospective clients instant proof of precision, safety standards, and project readiness.",
+      highlight: "Instant credibility in initial pitches",
+    },
+    {
+      num: "04",
+      title: "Personal Brand & Founder Trust",
+      body: "People partner with people. Humanizing Asal builds direct founder-level trust, giving B2B clients a clear face of leadership and accountability behind every project.",
+      highlight: "Unlocks long-term B2B partner relationships",
+    },
+  ];
+
+  return (
+    <Slide tone="deep" className="vignette">
+      <div className="flex h-full flex-col justify-between">
+        <div className="flex items-end justify-between">
+          <SlideHeader index="28" label="Strategic ROI & Business Impact" />
+          <SdsMark variant="white" className="h-7" />
+        </div>
+
+        <div>
+          <h2 className="slide-hero text-offwhite reveal">
+            Why build this film?
+            <span className="block text-blue-soft">To win B2B clients.</span>
+          </h2>
+          <p className="editorial mt-3 max-w-[840px] text-[22px] text-cream reveal" style={d(2)}>
+            “This is not an aesthetic marketing expenditure. This is ASAL’s primary visual engine for acquiring high-value B2B contracts.”
+          </p>
+        </div>
+
+        <div className="grid grid-cols-4 gap-6 my-auto">
+          {benefits.map((b, i) => (
+            <div key={b.title} className="flex flex-col justify-between border-t-2 border-blue bg-navy/40 p-5 reveal" style={d(3 + i)}>
+              <div>
+                <span className="num slide-cap text-blue text-[22px] font-semibold">{b.num}</span>
+                <h3 className="slide-sub mt-2 text-[20px] uppercase text-offwhite font-semibold leading-tight">{b.title}</h3>
+                <p className="slide-body mt-3 text-[14px] text-offwhite/75 leading-relaxed">{b.body}</p>
+              </div>
+              <div className="mt-4 border-t border-offwhite/15 pt-2.5">
+                <span className="kicker text-[10px] text-cream block">{b.highlight}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className="flex items-center justify-between border-t border-offwhite/15 pt-4">
+          <span className="kicker text-offwhite/40">Direct Business Result</span>
+          <p className="slide-cap uppercase tracking-[0.24em] text-cream">
+            More B2B Leads <span className="text-blue">→</span> Higher Contract Value <span className="text-blue">→</span> Unrivaled Market Presence
+          </p>
+        </div>
+      </div>
+    </Slide>
+  );
+}
+
 /* 30 ------------------------------------------------------------------ */
 function Closing() {
   return (
@@ -1215,7 +1361,7 @@ function Closing() {
       />
       <div className="absolute inset-0 bg-gradient-to-t from-navy-deep via-navy-deep/85 to-navy-deep/60" />
       <div className="absolute inset-0 flex flex-col justify-between px-[110px] py-[78px]">
-        <SlideHeader index="27" label="Closing" />
+        <SlideHeader index="29" label="Closing" />
         <div>
           <h2 className="slide-mega text-offwhite reveal">
             Let&apos;s build
@@ -1232,7 +1378,11 @@ function Closing() {
           </div>
         </div>
         <div className="flex items-end justify-between border-t border-offwhite/20 pt-8">
-          <Mark className="h-12" />
+          <div className="flex items-center gap-6">
+            <Mark className="h-10" />
+            <span className="h-6 w-px bg-offwhite/20" />
+            <SdsMark variant="white" className="h-7" />
+          </div>
           <span className="slide-cap uppercase tracking-[0.3em] text-offwhite/55">
             People <span className="text-blue">→</span> Process <span className="text-blue">→</span> Precision{" "}
             <span className="text-blue">→</span> Result
@@ -1262,6 +1412,7 @@ export const slides: SlideEntry[] = [
   { label: "The Documentary Rhythm", component: Rhythm },
   { label: "The Brand Has A Face", component: HumanConnection },
   { label: "Personal Branding Reels", component: Reels },
+  { label: "Previous Work Showcase", component: PreviousWork },
   { label: "The Content Ecosystem", component: Ecosystem },
   { label: "The Visual Language", component: VisualLanguage },
   { label: "The Cinematography", component: Cinematography },
@@ -1275,5 +1426,6 @@ export const slides: SlideEntry[] = [
   { label: "The Brand Transformation", component: Transformation },
   { label: "The Core Story", component: CoreStory },
   { label: "The Final Experience", component: FinalExperience },
+  { label: "Direct B2B Business Impact", component: BusinessImpact },
   { label: "Let's Build The Story", component: Closing },
 ];
